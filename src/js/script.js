@@ -4,16 +4,32 @@ let minutosTimer = 0;
 let segundosTimer = 0;
 let timer
 
-function formatarTempo(tempo){
+function formatarTempo(tempo) {
     let min = Math.floor(tempo / 60);
     let seg = tempo % 60;
     return `${min}:${seg}`
 }
 
 function iniciarTimerFoco() {
-    tempo = 1500
-    timer = setInterval(() =>{
+    clearInterval(timer);
+    timer = setInterval(() => {
         tempo--;
         document.getElementById('timerText').textContent = formatarTempo(tempo);
     }, 1000);
+}
+function iniciarTimerPausa() {
+    clearInterval(timer);
+    timer = setInterval(() => {
+        tempo--;
+        document.getElementById('timerText').textContent = formatarTempo(tempo)
+    }, 1000)
+}
+
+function comecarPomodoro() {
+    tempo = 1500;
+    iniciarTimerFoco();
+    if (tempo == 0) {
+        tempo = 300;
+        iniciarTimerPausa();
+    }
 }
