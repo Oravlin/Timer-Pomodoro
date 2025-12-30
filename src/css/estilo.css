@@ -13,11 +13,12 @@ html {
 header {
     background: #000;
     color: #fff;
+    padding:0.4em;
 }
 
 #relogio-container {
-    margin-top:3rem;
-    margin-bottom:3rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 #fundo-relogio {
@@ -36,35 +37,47 @@ header {
     width: 14rem;
     height: 14rem;
     border-radius: 40%;
-    text-align:center;
-    display:grid;
-    align-items:center;
+    text-align: center;
+    display: grid;
+    align-items: center;
 }
 
-#timerText{
-    font-size:3em;
+#timerText {
+    font-size: 3em;
 }
 
-.btn-relogio{
+.btn-relogio {
     transition: ease 0.3s;
-    background-color:#000;
-    border:none;
-    color:#fff;
-    padding:1vh;
-    border-radius:30px;
-    cursor:pointer;
+    background-color: #000;
+    border: none;
+    color: #fff;
+    padding: 1vh;
+    border-radius: 30px;
+    cursor: pointer;
 }
 
-.btn-relogio:hover{
-    transition:ease 0.3s;
+.btn-relogio:hover {
+    transition: ease 0.3s;
     background-color: #fff;
-    color:#000;
+    color: #000;
     border: 2px #000 solid;
-    transform:scale(105%);
+    transform: scale(105%);
 }
 
-.btn-relogio:active{
-    transition:0.1s ease;
+.btn-relogio:active {
+    transition: 0.1s ease;
     background-color: #3a3a3a;
-    color:#c4c4c4;
+    color: #c4c4c4;
+}
+
+/* esconder objedos */
+.hide {
+    visibility: hidden;
+    content: "";
+    background: transparent;
+    width: 0;
+    height: 0;
+    border: none;
+    color: transparent;
+    position: absolute;
 }
