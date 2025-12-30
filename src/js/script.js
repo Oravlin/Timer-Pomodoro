@@ -1,79 +1,55 @@
-// vou tentar fazer algo aqui
-let tempo = 1500; //coloquei o tempo em segundos pq é mais facíl :)
-let minutosTimer = 0;
-let segundosTimer = 0;
-let timer;
+let tempo //esse mano vai ser em segundos
 let pausado = true;
 
-function pausarPomo() {
-    pausado = true;
+function formatarTempo(t) {
+    let min = Math.floor(t / 60);
+    let seg = t % 60;
+    return `${min}:${seg < 10 ? '0' : ''}${seg}`;
 }
 
-function iniciarPomo() {
-    pausado = false;
+function timerFoco() {
+    return new Promise((resolve) => {
+        tempo = 10;
+        document.getElementById('timerText').textContent = formatarTempo(tempo);
+        foco = setInterval(() => {
+            if (tempo > 0) {
+                tempo--;
+                document.getElementById('timerText').textContent = formatarTempo(tempo);
+            }
+            else {
+                clearInterval(foco);
+                resolve();
+            }
+        }, 1000);
+    })
 }
 
-function formatarTempo(tempo) {
-    let min = Math.floor(tempo / 60);
-    let seg = tempo % 60;
-    return `${min}:${seg}`
+function timerPausa() {
+    return new Promise((resolve) => {
+        tempo = 10;
+        document.getElementById('timerText').textContent = formatarTempo(tempo);
+        pausa = setInterval(() => {
+            if (tempo > 0) {
+                tempo--;
+                document.getElementById('timerText').textContent = formatarTempo(tempo);
+            }
+            else {
+                clearInterval(pausa);
+                resolve();
+            }
+        }, 1000);
+    })
 }
 
-function iniciarTimerFoco() {
-    timer = setInterval(() => {
-        if (tempo > 0) {
-            tempo--;
-            document.getElementById('timerText').textContent = formatarTempo(tempo);
-        }
-        else {
-            clearInterval(timer);
-            tempo = 300;
-            iniciarTimerPausa();
-        }
-    }, 1000);
-}
-function iniciarTimerPausa() {
-    clearInterval(timer);
-    timer = setInterval(() => {
-        if (tempo > 0) {
-            tempo--;
-            document.getElementById('timerText').textContent = formatarTempo(tempo);
-        }
-        else {
-            clearInterval(timer);
-        }
-        if(pausado){
-            Pomodoro();
-        }
-    }, 1000);
-    return tempo = 'oi';
-}
-
-function Pomodoro() {
+async function pomodoro() {
     if (pausado) {
         pausado = false;
         let i = 0;
-        tempo = 10;
-        iniciarTimerFoco();
-        let intervaloPomodoro = setInterval(() => {
-            if (i < 4) {
-                if (tempo == 'oi') {
-                    tempo = 1500;
-                    iniciarTimerFoco();
-                    i++
-                }
-            }
-            else {
-                clearInterval(intervaloPomodoro);
-            }
-        }, 1000);
+        while (i < 4) {
+            await timerFoco();
+            await timerPausa();
+            i++
+        }
+        pausado = true;
     }
-}
-
-function resetTimer(){
-    tempo = 1500;
-    clearInterval(intervaloPomodoro);
-    clearInterval(timer);
-    document.getElementById('timerText').textContent = formatarTempo(tempo);
-    pausado = true;
 }
