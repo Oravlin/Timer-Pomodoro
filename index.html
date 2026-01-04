@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomo dos Doros</title>
     <link rel="stylesheet" href="./src/css/estilo.css">
-    <link rel="icon" type="image/icon-x" href="#">
+    <link rel="icon" type="image/icon-x" href="./src/assets/img/emoji_maneiro.png">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.17/dist/sweetalert2.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -21,13 +23,13 @@
                 <div id="display-relogio">
                     <h2 id="timerText">25:00</h2>
                     <div id="botoes-display">
-                        <button type="button" class="btn-relogio" id="btn-play" onclick="pomodoro()">
+                        <button type="button" class="btn-relogio" id="btn-play">
                             Play
                         </button>
-                        <button type="button" class="btn-relogio hide" id="btn-pause" onclick="pausarPomodoro()">
+                        <button type="button" class="btn-relogio hide" id="btn-pause">
                             Pause
                         </button>
-                        <button type="button" class="btn-relogio hide" id="btn-reset" onclick="resetPomodoro()">
+                        <button type="button" class="btn-relogio hide" id="btn-reset">
                             Reset
                         </button>
                     </div>
@@ -39,11 +41,11 @@
                 <div id="display-ajustes">
 
                     <div class="ajuste-scroll" id="ajuste-foco">
-                        <input type="range" class="ajustes-pomo" id="inputFoco" value="25" max="75" min="5" oninput="atualizarInput()">
+                        <input type="range" class="ajustes-pomo" id="inputFoco" value="25" max="75" min="5">
                         <h2 class="texto-ajuste" id="textFoco">25 min</h2>
                     </div>
                     <div class="ajuste-scroll" id="ajuste-pausa">
-                        <input type="range" class="ajustes-pomo" id="inputPausa" value="5" max="25" min="1" oninput="atualizarInput()">
+                        <input type="range" class="ajustes-pomo" id="inputPausa" value="5" max="25" min="1">
                         <h2 class="texto-ajuste" id="textPausa">5 min</h2>
                     </div>
 
@@ -59,7 +61,8 @@
 
     </footer>
 
-    <script src="./src/js/script.js"></script>
+    <script type="module" src="./src/js/script.js"></script>
+    <script type="module">import sweetalert2 from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.26.17/+esm'</script>
 
 </body>
 
