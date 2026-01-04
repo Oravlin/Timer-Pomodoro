@@ -72,6 +72,7 @@ header {
 
 /* esconder objedos */
 .hide {
+    display:none !important;
     visibility: hidden;
     content: "";
     background: transparent;
