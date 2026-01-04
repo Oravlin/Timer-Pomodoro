@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,12 @@
     <link rel="stylesheet" href="./src/css/estilo.css">
     <link rel="icon" type="image/icon-x" href="#">
 </head>
+
 <body>
-    
-    <header><h1>Pomo dos Doros</h1></header>
+
+    <header>
+        <h1>Pomo dos Doros</h1>
+    </header>
 
     <main class="doro-container"> <!-- <-- vai conter o site todo, basicamente -->
         <section id="relogio-container">
@@ -30,17 +34,33 @@
                 </div>
             </div>
         </section>
+        <section class="ajustes-timer-container">
+            <div id="fundo-ajustes">
+                <div id="display-ajustes">
 
+                    <div class="ajuste-scroll" id="ajuste-foco">
+                        <input type="range" class="ajustes-pomo" id="inputFoco" value="25" max="75" min="5" oninput="atualizarInput()">
+                        <h2 class="texto-ajuste" id="textFoco">25 min</h2>
+                    </div>
+                    <div class="ajuste-scroll" id="ajuste-pausa">
+                        <input type="range" class="ajustes-pomo" id="inputPausa" value="5" max="25" min="1" oninput="atualizarInput()">
+                        <h2 class="texto-ajuste" id="textPausa">5 min</h2>
+                    </div>
+
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <div>
-            <h3>Site muito épico</h3>
-            <h4> Alvaro Andrade Santos &copy; - 2025 - Todos os Direitos reservados</h4>
-        </div>
+
+        <h3>Site muito épico</h3>
+        <h4> Alvaro Andrade Santos &copy; - 2025 - Todos os Direitos reservados</h4>
+
     </footer>
 
     <script src="./src/js/script.js"></script>
 
 </body>
+
 </html>

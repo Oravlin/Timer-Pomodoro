@@ -1,7 +1,7 @@
 let tempo = 1500; //esse mano vai ser em segundos
 let pausado = true;
-let tempoFoco = 1500;
-let tempoPausa = 300;
+let tempoFoco = document.getElementById('inputFoco').value;
+let tempoPausa = document.getElementById('inputPausa').value;
 let modoFoco = true;
 
 function formatarTempo(t) {
@@ -47,7 +47,7 @@ async function resetPomodoro() {
     document.getElementById('btn-reset').classList.add('hide');
     pausado = true;
     modoFoco = true;
-    tempo = 1500;
+    tempo = tempoFoco;
     document.getElementById('timerText').textContent = formatarTempo(tempo);
     clearInterval(foco);
 }
@@ -60,4 +60,14 @@ async function pomodoro() {
         document.getElementById('btn-reset').classList.remove('hide');
         timer();
     }
+}
+
+//ajustes de timer
+
+async function atualizarInput(){
+    tempoFoco = document.getElementById('inputFoco').value * 60;
+    tempoPausa = document.getElementById('inputPausa').value * 60;
+    resetPomodoro();
+    document.getElementById('textFoco').textContent = document.getElementById('inputFoco').value + ' min';
+    document.getElementById('textPausa').textContent = document.getElementById('inputPausa').value + ' min';
 }

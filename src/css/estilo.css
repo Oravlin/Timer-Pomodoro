@@ -13,7 +13,7 @@ html {
 header {
     background: #000;
     color: #fff;
-    padding:0.4em;
+    padding: 0.4em;
 }
 
 #relogio-container {
@@ -70,9 +70,50 @@ header {
     color: #c4c4c4;
 }
 
+footer {
+    background: #000;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    bottom:0;
+}
+
+#fundo-ajustes{
+    background:#000;
+    margin:auto;
+    width:18rem;
+    height:8rem;
+    align-content: center;
+    border-radius: 20px;
+}
+
+#display-ajustes{
+    background:#fff;
+    width:15rem;
+    height:6rem;
+    margin:auto;
+    align-content: center;
+    border-radius: 20px;
+}
+
+.ajuste-scroll{
+    display:flex;
+    justify-content: center;
+    gap:10px;
+    text-align: center;
+}
+
+#inputPausa{
+    margin-right:0.8rem;
+}
+
+.ajustes-timer-container{
+    margin-bottom:2.5rem;
+}
+
 /* esconder objedos */
 .hide {
-    display:none !important;
+    display: none !important;
     visibility: hidden;
     content: "";
     background: transparent;
@@ -81,4 +122,50 @@ header {
     border: none;
     color: transparent;
     position: absolute;
+}
+
+/* estilização de inputs ranges :) */
+
+input[type=range]{
+    -webkit-appearance: none;
+    appearance: none;
+    width:50%;
+    background:transparent;
+    cursor:pointer;
+}
+
+input[type=range]:focus{
+    outline:none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width:100%;
+    height: 15px;
+    background:#000000;
+    border-radius:4px;
+}
+
+input[type=range]::-moz-range-track{
+    width:100%;
+    height:15px;
+    background:#000000;
+    border-radius:4px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #fff;
+    margin-top:-3.5px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.8);
+}
+
+input[type=range]::-moz-range-thumb{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #fff;
+    margin-top:-3.5px;
 }
